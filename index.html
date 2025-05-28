@@ -39,6 +39,16 @@
       color: #ccc;
     }
 
+    .hover-video {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-video:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
     section {
       padding: 60px 20px;
       max-width: 1000px;
@@ -153,11 +163,11 @@
         </video>
         <p>Promo Video for Fitness Brand</p>
       </div>
-     <div id="videos">
+    <div id="videos">
   <h2>My Video Edits</h2>
 
   <div class="video-grid">
-    <div class="video-container">
+    <div class="video-container hover-video">
       <iframe 
         width="100%" 
         height="315" 
@@ -171,13 +181,7 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-      <div class="video-card">
+<div class="video-card">
         <video controls poster="thumb3.jpg">
           <source src="gig video.mp4" type="video/mp4">
           Your browser does not support the video tag.
