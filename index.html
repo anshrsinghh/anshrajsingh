@@ -1,193 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ansh Raj | Video Editor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansh Raj Singh | Professional Video Editor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-
-    header.hero {
-      background: linear-gradient(135deg, #1f1f1f, #292929);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      color: #fff;
-    }
-
-    .hero-content h1 span {
-      color: #00f7ff;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #ccc;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      animation: slideUp 1.5s ease;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00f7ff;
-      text-align: center;
-    }
-
-    .about p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .portfolio .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .video-card {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
-    }
-
-    .video-card video {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .video-card p {
-      margin-top: 10px;
-      color: #ddd;
-      font-size: 1rem;
-      text-align: center;
-    }
-
-    .contact p {
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .contact a {
-      color: #00f7ff;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1a1a1a;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    .hover-video {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-video:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
-
+    
     @keyframes slideUp {
       0% { transform: translateY(40px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
-  </style>
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm <span>Ansh Raj</span></h1>
-      <p>Freelance Video Editor | Premiere Pro & After Effects | DaVinci Resolve</p>
-    </div>
-  </header>
-
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I’m a creative video editor with over 3 years of experience, passionate about storytelling through visual effects and smooth transitions. I bring your ideas to life with cinematic quality, crafting engaging videos that capture attention and deliver your vision with impact.</p>
-  </section>
-
-  <section class="portfolio">
-  <h2>My Work</h2>
-  <div class="gallery">
     
-  
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .gradient-flow {
+      background-size: 200% 200%;
+      animation: gradientFlow 8s ease infinite;
+    }
+    
+    .video-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 247, 255, 0.25);
+    }
+    
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #00f7ff, #0085ff);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #00f7ff, #0085ff);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-20px);}
+      60% {transform: translateY(-10px);}
+    }
+    
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .bg-noise {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 
-    <div class="video-container hover-video">
-      <iframe 
-        width="100%" 
-        height="315" 
-        src="https://www.youtube.com/embed/py3R-oNV4o8?si=N_mfNHjGrAlykTRj" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-      </iframe>
-      <p style="text-align: center; margin-top: 10px;">Instagram Reels Edit</p>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("TRuuFNIT3KM1sW4Jv"); // Replace with your EmailJS public key
+  })();
+</script>
+
+
+</head>
+<body class="bg-gray-900 text-gray-100 font-['Poppins']">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl font-bold gradient-text">ANSH RAJ SINGH</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#home" class="nav-link px-3 py-2 text-sm font-medium hover:text-cyan-400 transition-colors">Home</a>
+            <a href="#about" class="nav-link px-3 py-2 text-sm font-medium hover:text-cyan-400 transition-colors">About</a>
+            <a href="#work" class="nav-link px-3 py-2 text-sm font-medium hover:text-cyan-400 transition-colors">Work</a>
+            <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium hover:text-cyan-400 transition-colors">Contact</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button class="mobile-menu-button p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <div class="video-container hover-video">
-  <iframe 
-    width="100%" 
-    height="315" 
-    src="https://www.youtube.com/embed/t04352zF--M?si=1J6TtzF0eyc821lZ" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
-  <p style="text-align: center; margin-top: 10px;">Talking Head Video Edit</p>
-</div>
-
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden md:hidden fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-lg pt-20">
+    <div class="flex flex-col items-center space-y-8">
+      <a href="#home" class="block px-3 py-4 text-xl font-medium hover:text-cyan-400 transition-colors">Home</a>
+      <a href="#about" class="block px-3 py-4 text-xl font-medium hover:text-cyan-400 transition-colors">About</a>
+      <a href="#work" class="block px-3 py-4 text-xl font-medium hover:text-cyan-400 transition-colors">Work</a>
+      <a href="#contact" class="block px-3 py-4 text-xl font-medium hover:text-cyan-400 transition-colors">Contact</a>
+    </div>
   </div>
-</section>
 
-
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:anshrajsinghhh@gmail.com">anshrajsinghhh@gmail.com</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/anshhrajsinghh" target="_blank">@anshhrsinghh</a></p>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden bg-noise">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center z-10">
+      <div class="animate-float">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          <span class="gradient-text">Ansh Raj Singh</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Professional Video Editor specializing in <span class="text-cyan-400">Premiere Pro</span>, <span class="text-cyan-400">After Effects</span>, and <span class="text-cyan-400">DaVinci Resolve</span>
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#work" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-medium hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
+            View My Work
+          </a>
+          <a href="#contact" class="px-8 py-3 border border-cyan-400 text-cyan-400 rounded-full font-medium hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105">
+            Contact Me
+          </a>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-10 left-0 right-0 flex justify-center scroll-indicator">
+        <a href="#about" class="text-gray-400 hover:text-cyan-400">
+          <i class="fas fa-chevron-down text-2xl animate-bounce"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Ansh Raj. All rights reserved.</p>
+  <!-- About Section -->
+  <section id="about" class="section py-20 bg-gray-900 bg-noise">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="gradient-text">About Me</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8"></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 relative">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <div class="relative bg-gray-800 rounded-lg overflow-hidden">
+              <img src="https://i.postimg.cc/C5nVVcxL/Whats-App-Image-2025-06-02-at-00-03-10-1e67ea6f.jpg" 
+              
+                   alt="Video Editor at Work" 
+                   class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Crafting Visual Stories That Captivate</h3>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            I'm Ansh Raj Singh, a creative video editor with over 3 years of professional experience, passionate about storytelling through visual effects and smooth transitions. My expertise lies in transforming raw footage into compelling narratives that engage audiences and deliver impactful messages.
+          </p>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            I specialize in Adobe Premiere Pro, After Effects, and DaVinci Resolve, bringing cinematic quality to every project. Whether it's social media content, corporate videos, or creative short films, I approach each project with meticulous attention to detail and a commitment to excellence.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 mt-8">
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-cyan-500/10 mr-3">
+                <i class="fas fa-film text-cyan-400"></i>
+              </div>
+              <span class="text-gray-300">Premiere Pro</span>
+            </div>
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-cyan-500/10 mr-3">
+                <i class="fas fa-magic text-cyan-400"></i>
+              </div>
+              <span class="text-gray-300">After Effects</span>
+            </div>
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-cyan-500/10 mr-3">
+                <i class="fas fa-sliders-h text-cyan-400"></i>
+              </div>
+              <span class="text-gray-300">DaVinci Resolve</span>
+            </div>
+            <div class="flex items-center">
+              <div class="p-2 rounded-full bg-cyan-500/10 mr-3">
+                <i class="fas fa-photo-video text-cyan-400"></i>
+              </div>
+              <span class="text-gray-300">Motion Graphics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="section py-20 bg-gray-800 bg-noise">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="gradient-text">My Portfolio</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          A selection of my recent video editing projects showcasing different styles and techniques
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="video-card bg-gray-900 rounded-xl overflow-hidden shadow-xl">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/py3R-oNV4o8?si=N_mfNHjGrAlykTRj" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-cyan-400">Instagram Reels Edit</h3>
+            <p class="text-gray-300 mb-4">
+              A high-energy social media edit with dynamic transitions and effects optimized for mobile viewing.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Premiere Pro</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">After Effects</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Color Grading</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="video-card bg-gray-900 rounded-xl overflow-hidden shadow-xl">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/t04352zF--M?si=1J6TtzF0eyc821lZ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-cyan-400">Talking Head Video Edit</h3>
+            <p class="text-gray-300 mb-4">
+              A professional interview-style video with clean cuts, B-roll integration, and subtle motion graphics.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Premiere Pro</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">DaVinci Resolve</span>
+              <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Audio Mixing</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+<div class="video-card bg-gray-900 rounded-xl overflow-hidden shadow-xl">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/t04352zF--M?si=1J6TtzF0eyc821lZ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2 text-cyan-400">PlaceHolder for 3rd Project</h3>
+    <p class="text-gray-300 mb-4">
+      A short description of the project. You can describe the editing style, storytelling, and tools used.
+    </p>
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Tool/Skill 1</span>
+      <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Tool/Skill 2</span>
+      <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full">Tool/Skill 3</span>
+    </div>
+  </div>
+</div>
+      </div>
+
+      
+      <div class="text-center mt-16">
+        <a href="#contact" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-medium hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
+          <span>Let's Work Together</span>
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section py-20 bg-gray-900 bg-noise">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="gradient-text">Get In Touch</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Have a project in mind or want to discuss video editing services? Reach out and let's create something amazing together.
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto" >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Contact Information</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 pt-1">
+                  <i class="fas fa-envelope text-cyan-400 text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-300">Email</h4>
+                  <a href="mailto:anshrajsinghhh@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors">anshrajsinghhh@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 pt-1">
+                  <i class="fab fa-instagram text-cyan-400 text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-300">Instagram</h4>
+                  <a href="https://www.instagram.com/anshhrajsinghh" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">@anshhrajsinghh</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 pt-1">
+                  <i class="fab fa-youtube text-cyan-400 text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-300">YouTube</h4>
+                  <a href="https://www.youtube.com/@anshrajsinghh" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">Ansh Raj Singh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+           <div class="bg-gray-800 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Send a Message</h3>
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-300 mb-1" >Your Name</label>
+                <input type="text" id="name" name="from_name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-200 placeholder-gray-400 transition-all">
+              </div>
+              
+              <div>
+                <label for="email"  class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                <input type="email" name="reply_to" id="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-200 placeholder-gray-400 transition-all">
+              </div>
+              
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
+                <textarea id="message" rows="4" name="message" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-200 placeholder-gray-400 transition-all"></textarea>
+              </div>
+              
+              <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-[1.02]">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-900 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <span class="text-xl font-bold gradient-text">ANSH RAJ SINGH</span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://www.instagram.com/anshhrajsinghh" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://www.youtube.com/@anshrajsinghh" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+            <i class="fab fa-youtube text-xl"></i>
+          </a>
+          <a href="mailto:anshrajsinghhh@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2025 Ansh Raj Singh. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Scroll animation for sections
+    const sections = document.querySelectorAll('.section');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+  
+  
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init('TRuuFNIT3KM1sW4Jv'); // Replace with your actual User ID
+  })();
+</script>
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_y19mawd', 'template_0vv96ae', this)
+      .then(() => {
+        alert('Message sent successfully!');
+        form.reset();
+      }, (error) => {
+        alert('Failed to send message, please try again.');
+        console.error('EmailJS error:', error);
+      });
+  });
+</script>
+
+
+
+
+
 </body>
 </html>
